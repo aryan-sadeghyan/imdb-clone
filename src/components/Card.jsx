@@ -24,7 +24,7 @@ export default function Card({ result }) {
           </h2>
           <div className='flex'>
             {result.release_date || result.first_air_date}
-            http://localhost:3000/movie/786892
+
             <FaThumbsUp className='h-5 mr-1 ml-3' />
             {result.vote_count}
           </div>
