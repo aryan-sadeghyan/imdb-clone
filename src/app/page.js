@@ -1,9 +1,11 @@
+import Results from "@/components/Results";
 import Image from "next/image";
 
 const API_KEY = process.env.API_KEY;
 
 export default async function Home({ searchParams }) {
   const genre = searchParams.genre || "Trending";
+
   const res = await fetch(
     `https://api.themoviedb.org/3${
       genre === "top_rated" ? `/movie/top_rated` : `/trending/all/week`
@@ -14,15 +16,11 @@ export default async function Home({ searchParams }) {
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
-  const result = data.results;
+  const results = data.results;
 
   return (
-    <main>
-      <div>
-        {result.map((movie) => {
-          return <div key={movie.id}>{movie.title}</div>;
-        })}
-      </div>
+    <main className='mx-auto'>
+      <Results results={results} />
     </main>
   );
 }
