@@ -31,7 +31,7 @@ export default async function page({ params }) {
         </h1>
         <p>{data.overview}</p>
         <p>release date : {data.release_date}</p>
-        <p className='flex gap-2 items-center'>Rating : {data.popularity}</p>
+        <p className='flex gap-2 items-center'>Rating : {data.vote_count}</p>
       </div>
     </div>
   );
